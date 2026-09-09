@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Zuqvi AI | محتوى وتسويق بالذكاء الاصطناعي للمطاعم</title>
+  <meta name="description" content="Zuqvi AI تساعد المطاعم والكافيهات على صناعة محتوى احترافي بالذكاء الاصطناعي.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#08070d;
+      --card:#11101a;
+      --card2:#151320;
+      --purple:#8b5cf6;
+      --purple2:#6d28d9;
+      --mint:#45f0bd;
+      --white:#fff;
+      --muted:#aaa7b7;
+      --border:rgba(255,255,255,.09);
+      --shadow:0 25px 80px rgba(0,0,0,.35);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:"Cairo",sans-serif;
+      background:
+        radial-gradient(circle at 80% 10%,rgba(139,92,246,.18),transparent 30%),
+        radial-gradient(circle at 15% 35%,rgba(69,240,189,.08),transparent 25%),
+        var(--bg);
+      color:var(--white);
+      line-height:1.7;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(1150px,92%);
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(18px);
+      background:rgba(8,7,13,.78);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav-inner{
+      height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+    }
+
+    .logo{
+      font-size:27px;
+      font-weight:900;
+      letter-spacing:-1px;
+    }
+
+    .logo span{
+      color:var(--mint);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:25px;
+      color:#d6d3df;
+      font-size:14px;
+    }
+
+    .nav-links a:hover{
+      color:var(--mint);
+    }
+
+    .nav-actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:13px;
+      padding:11px 18px;
+      font-weight:800;
+      border:1px solid var(--border);
+      transition:.25s;
+      cursor:pointer;
+      font-family:inherit;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--purple),var(--purple2));
+      box-shadow:0 10px 30px rgba(109,40,217,.3);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.04);
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:700px;
+      display:flex;
+      align-items:center;
+      padding:80px 0;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:55px;
+      align-items:center;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 13px;
+      border-radius:30px;
+      background:rgba(69,240,189,.08);
+      border:1px solid rgba(69,240,189,.2);
+      color:var(--mint);
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:22px;
+    }
+
+    .hero h1{
+      font-size:clamp(42px,6vw,72px);
+      line-height:1.08;
+      letter-spacing:-2px;
+      margin-bottom:22px;
+    }
+
+    .gradient{
+      background:linear-gradient(90deg,#fff,var(--mint),#9b7cff);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:18px;
+      max-width:650px;
+      margin-bottom:30px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .hero-card{
+      position:relative;
+      background:linear-gradient(145deg,rgba(139,92,246,.2),rgba(69,240,189,.06));
+      border:1px solid var(--border);
+      border-radius:30px;
+      padding:28px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      width:220px;
+      height:220px;
+      background:var(--purple);
+      filter:blur(100px);
+      opacity:.25;
+      top:-100px;
+      left:-100px;
+    }
+
+    .preview{
+      position:relative;
+      background:#0d0c13;
+      border-radius:22px;
+      border:1px solid var(--border);
+      padding:20px;
+    }
+
+    .preview-top{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:20px;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--mint);
+      box-shadow:0 0 15px var(--mint);
+    }
+
+    .food-image{
+      height:230px;
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:90px;
+      background:
+        linear-gradient(135deg,rgba(139,92,246,.35),rgba(69,240,189,.12)),
+        #171522;
+      margin-bottom:18px;
+    }
+
+    .fake-lines{
+      display:grid;
+      gap:10px;
+    }
+
+    .line{
+      height:12px;
+      border-radius:20px;
+      background:#242230;
+    }
+
+    .line.short{
+      width:60%;
+    }
+
+    /* STATS */
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:15px;
+      margin-top:30px;
+    }
+
+    .stat{
+      background:rgba(255,255,255,.035);
+      border:1px solid var(--border);
+      padding:18px;
+      border-radius:18px;
+      text-align:center;
+    }
+
+    .stat strong{
+      display:block;
+      font-size:25px;
+      color:var(--mint);
+    }
+
+    .stat span{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* SECTIONS */
+
+    section{
+      padding:90px 0;
+    }
+
+    .section-head{
+      text-align:center;
+      max-width:700px;
+      margin:0 auto 45px;
+    }
+
+    .section-head h2{
+      font-size:40px;
+      margin-bottom:12px;
+    }
+
+    .section-head p{
+      color:var(--muted);
+    }
+
+    /* SERVICES */
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .service{
+      background:var(--card);
+      border:1px solid var(--border);
+      padding:27px 20px;
+      border-radius:22px;
+      transition:.25s;
+    }
+
+    .service:hover{
+      transform:translateY(-7px);
+      border-color:rgba(139,92,246,.45);
+    }
+
+    .icon{
+      width:50px;
+      height:50px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(139,92,246,.12);
+      border-radius:15px;
+      font-size:25px;
+      margin-bottom:16px;
+    }
+
+    .service h3{
+      margin-bottom:7px;
+    }
+
+    .service p{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* PACKAGES */
+
+    .packages{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .package{
+      background:linear-gradient(160deg,var(--card),#0d0c13);
+      border:1px solid var(--border);
+      padding:30px;
+      border-radius:25px;
+      position:relative;
+    }
+
+    .package.featured{
+      border-color:var(--purple);
+      transform:translateY(-10px);
+      box-shadow:0 20px 60px rgba(109,40,217,.2);
+    }
+
+    .popular{
+      position:absolute;
+      top:-14px;
+      right:25px;
+      background:var(--mint);
+      color:#07100d;
+      padding:5px 12px;
+      border-radius:20px;
+      font-size:11px;
+      font-weight:900;
+    }
+
+    .package h3{
+      font-size:23px;
+    }
+
+    .price{
+      font-size:37px;
+      font-weight:900;
+      margin:10px 0 20px;
+    }
+
+    .price small{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .package ul{
+      list-style:none;
+      display:grid;
+      gap:10px;
+      margin-bottom:25px;
+      color:#d8d5df;
+      font-size:14px;
+    }
+
+    .package li:before{
+      content:"✓";
+      color:var(--mint);
+      margin-left:8px;
+      font-weight:900;
+    }
+
+    /* HOW */
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:15px;
+    }
+
+    .step{
+      text-align:center;
+      padding:25px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.025);
+      border-radius:20px;
+    }
+
+    .number{
+      width:45px;
+      height:45px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--purple),var(--purple2));
+      margin:0 auto 15px;
+      font-weight:900;
+    }
+
+    .step p{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* CTA */
+
+    .cta{
+      text-align:center;
+      background:
+        radial-gradient(circle at center,rgba(139,92,246,.22),transparent 55%),
+        #0d0b15;
+      border:1px solid var(--border);
+      border-radius:35px;
+      padding:70px 25px;
+    }
+
+    .cta h2{
+      font-size:45px;
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      color:var(--muted);
+      margin-bottom:25px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      border-top:1px solid var(--border);
+      padding:40px 0;
+      color:var(--muted);
+    }
+
+    .footer-grid{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .footer-logo{
+      color:white;
+      font-size:22px;
+      font-weight:900;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:20px;
+      font-size:13px;
+    }
+
+    .staff{
+      opacity:.55;
+      font-size:12px;
+    }
+
+    /* MODAL */
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.75);
+      backdrop-filter:blur(8px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:3000;
+      padding:20px;
+    }
+
+    .modal.show{
+      display:flex;
+    }
+
+    .modal-box{
+      width:min(480px,100%);
+      background:#11101a;
+      border:1px solid var(--border);
+      border-radius:25px;
+      padding:30px;
+      position:relative;
+    }
+
+    .close{
+      position:absolute;
+      left:18px;
+      top:15px;
+      background:none;
+      border:0;
+      color:white;
+      font-size:25px;
+      cursor:pointer;
+    }
+
+    .form{
+      display:grid;
+      gap:12px;
+      margin-top:20px;
+    }
+
+    input,textarea,select{
+      width:100%;
+      padding:14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#0a0910;
+      color:white;
+      font-family:inherit;
+      outline:none;
+    }
+
+    textarea{
+      min-height:100px;
+      resize:vertical;
+    }
+
+    input:focus,textarea:focus,select:focus{
+      border-color:var(--purple);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+
+      .services{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .steps{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .nav-links{
+        display:none;
+      }
+    }
+
+    @media(max-width:650px){
+      .nav-actions .btn-secondary{
+        display:none;
+      }
+
+      .hero{
+        padding:60px 0;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .services,
+      .packages,
+      .steps{
+        grid-template-columns:1fr;
+      }
+
+      .package.featured{
+        transform:none;
+      }
+
+      .stats{
+        grid-template-columns:1fr;
+      }
+
+      .footer-grid{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .cta h2{
+        font-size:32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-inner">
+
+      <a href="#" class="logo">
+        Zuqvi<span>AI</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#services">الخدمات</a>
+        <a href="#packages">الباقات</a>
+        <a href="#how">إزاي بنشتغل؟</a>
+        <a href="#contact">تواصل</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn btn-secondary" onclick="openLogin()">
+          دخول
+        </button>
+
+        <button class="btn btn-primary" onclick="openOrder()">
+          ابدأ طلبك
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <main>
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+
+          <div class="badge">
+            ✦ محتوى احترافي بالذكاء الاصطناعي
+          </div>
+
+          <h1>
+            خلّي أكلِك
+            <span class="gradient">يتكلم عن نفسه 🔥</span>
+          </h1>
+
+          <p>
+            بنساعد المطاعم والكافيهات تعمل محتوى احترافي
+            للسوشيال ميديا — فيديوهات Reels، تصميمات،
+            صور أكل بالـAI وكابشنات جاهزة للنشر.
+          </p>
+
+          <div class="hero-buttons">
+
+            <button class="btn btn-primary" onclick="openOrder()">
+              🚀 ابدأ طلبك الآن
+            </button>
+
+            <a
+              class="btn btn-secondary"
+              href="https://wa.me/201143813913"
+              target="_blank"
+            >
+              💬 كلمنا واتساب
+            </a>
+
+          </div>
+
+          <div class="stats">
+
+            <div class="stat">
+              <strong>AI</strong>
+              <span>تقنيات ذكاء اصطناعي</span>
+            </div>
+
+            <div class="stat">
+              <strong>5+</strong>
+              <span>خدمات للمطاعم</span>
+            </div>
+
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>استقبال الطلبات</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+          <div class="preview">
+
+            <div class="preview-top">
+              <strong>Zuqvi AI</strong>
+              <div class="dot"></div>
+            </div>
+
+            <div class="food-image">
+              🍔
+            </div>
+
+            <div class="fake-lines">
+              <div class="line"></div>
+              <div class="line short"></div>
+              <div class="line"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SERVICES -->
+    <section id="services">
+
+      <div class="container">
+
+        <div class="section-head">
+          <h2>كل اللي محتاجه مطعمك</h2>
+          <p>
+            من الفكرة للتصميم للنشر — إحنا بنجهزلك المحتوى.
+          </p>
+        </div>
+
+        <div class="services">
+
+          <div class="service">
+            <div class="icon">🎬</div>
+            <h3>Reels</h3>
+            <p>
+              فيديوهات قصيرة جذابة مناسبة لإنستجرام وفيسبوك وتيك توك.
+            </p>
+          </div>
+
+          <div class="service">
+            <div class="icon">🎨</div>
+            <h3>تصميمات</h3>
+            <p>
+              بوستات وإعلانات احترافية بهوية مطعمك.
+            </p>
+          </div>
+
+          <div class="service">
+            <div class="icon">🤖</div>
+            <h3>صور AI</h3>
+            <p>
+              صور أكل احترافية باستخدام الذكاء الاصطناعي.
+            </p>
+          </div>
+
+          <div class="service">
+            <div class="icon">✍️</div>
+            <h3>كابشنات</h3>
+            <p>
+              نصوص تسويقية جاهزة للنشر ومناسبة لجمهورك.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PACKAGES -->
+    <section id="packages">
+
+      <div class="container">
+
+        <div class="section-head">
+          <h2>اختار الباقة المناسبة</h2>
+          <p>
+            أسعار واضحة بدون تعقيد.
+          </p>
+        </div>
+
+        <div class="packages">
+
+          <!-- STARTER -->
+          <div class="package">
+
+            <h3>Starter</h3>
+
+            <div class="price">
+              1,500
+              <small>جنيه</small>
+            </div>
+
+            <ul>
+              <li>2 Reels</li>
+              <li>5 تصميمات سوشيال</li>
+              <li>5 كابشنات</li>
+              <li>10 أفكار محتوى</li>
+              <li>مقاسات Instagram / Facebook</li>
+              <li>تعديلين</li>
+              <li>تسليم خلال 5 أيام</li>
+            </ul>
+
+            <button
+              class="btn btn-primary"
+              style="width:100%"
+              onclick="openOrder('Starter')"
+            >
+              احجز Starter
+            </button>
+
+          </div>
+
+
+          <!-- PRO -->
+          <div class="package featured">
+
+            <div class="popular">
+              الأكثر طلبًا
+            </div>
+
+            <h3>Pro</h3>
+
+            <div class="price">
+              3,500
+              <small>جنيه</small>
+            </div>
+
+            <ul>
+              <li>5 Reels</li>
+              <li>10 تصميمات</li>
+              <li>10 كابشنات</li>
+              <li>20 فكرة محتوى</li>
+              <li>5 صور أكل بالـAI</li>
+              <li>جدول محتوى لأسبوعين</li>
+              <li>تعديلات</li>
+              <li>تسليم خلال 7 أيام</li>
+            </ul>
+
+            <button
+              class="btn btn-primary"
+              style="width:100%"
+              onclick="openOrder('Pro')"
+            >
+              احجز Pro
+            </button>
+
+          </div>
+
+
+          <!-- BUSINESS -->
+          <div class="package">
+
+            <h3>Business</h3>
+
+            <div class="price">
+              7,000
+              <small>جنيه</small>
+            </div>
+
+            <ul>
+              <li>10 Reels</li>
+              <li>20 تصميم</li>
+              <li>20 كابشن</li>
+              <li>30 فكرة محتوى</li>
+              <li>10 صور أكل بالـAI</li>
+              <li>خطة محتوى شهرية</li>
+              <li>تقرير أداء بسيط</li>
+              <li>أولوية في التنفيذ</li>
+            </ul>
+
+            <button
+              class="btn btn-primary"
+              style="width:100%"
+              onclick="openOrder('Business')"
+            >
+              احجز Business
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section id="how">
+
+      <div class="container">
+
+        <div class="section-head">
+          <h2>بنشتغل إزاي؟</h2>
+          <p>أربع خطوات بسيطة.</p>
+        </div>
+
+        <div class="steps">
+
+          <div class="step">
+            <div class="number">1</div>
+            <h3>اختار الباقة</h3>
+            <p>اختار الباقة المناسبة لاحتياجات مطعمك.</p>
+          </div>
+
+          <div class="step">
+            <div class="number">2</div>
+            <h3>ابعت التفاصيل</h3>
+            <p>اسم المطعم، اللوجو، الصور وأي ملاحظات.</p>
+          </div>
+
+          <div class="step">
+            <div class="number">3</div>
+            <h3>نبدأ التنفيذ</h3>
+            <p>فريق Zuqvi يبدأ تجهيز المحتوى.</p>
+          </div>
+
+          <div class="step">
+            <div class="number">4</div>
+            <h3>استلم شغلك</h3>
+            <p>تستلم المحتوى جاهز للنشر.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="cta">
+
+          <h2>
+            جاهز تخلي مطعمك يظهر بشكل أقوى؟ 🔥
+          </h2>
+
+          <p>
+            ابدأ طلبك دلوقتي وخلي Zuqvi AI يجهزلك محتوى احترافي.
+          </p>
+
+          <button
+            class="btn btn-primary"
+            onclick="openOrder()"
+          >
+            🚀 ابدأ طلبك الآن
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container footer-grid">
+
+      <div>
+        <div class="footer-logo">
+          Zuqvi<span style="color:var(--mint)">AI</span>
+        </div>
+
+        <small>
+          محتوى وتسويق ذكي للمطاعم والكافيهات.
+        </small>
+      </div>
+
+      <div class="footer-links">
+
+        <a
+          href="https://wa.me/201143813913"
+          target="_blank"
+        >
+          واتساب
+        </a>
+
+        <a href="#packages">
+          الباقات
+        </a>
+
+        <a
+          href="#"
+          onclick="openLogin();return false;"
+          class="staff"
+        >
+          قسم العاملين
+        </a>
+
+      </div>
+
+      <div>
+        © 2026 Zuqvi AI
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ORDER MODAL -->
+  <div class="modal" id="orderModal">
+
+    <div class="modal-box">
+
+      <button class="close" onclick="closeOrder()">×</button>
+
+      <h2>ابدأ طلبك 🚀</h2>
+
+      <p style="color:var(--muted)">
+        اكتب بياناتك وسنتواصل معاك لتأكيد الطلب.
+      </p>
+
+      <form class="form" onsubmit="submitOrder(event)">
+
+        <input
+          id="customerName"
+          type="text"
+          placeholder="اسمك"
+          required
+        >
+
+        <input
+          id="restaurantName"
+          type="text"
+          placeholder="اسم المطعم / الكافيه"
+          required
+        >
+
+        <input
+          id="customerPhone"
+          type="tel"
+          placeholder="رقم الهاتف"
+          required
+        >
+
+        <select id="packageSelect" required>
+          <option value="">اختار الباقة</option>
+          <option value="Starter">Starter — 1,500 جنيه</option>
+          <option value="Pro">Pro — 3,500 جنيه</option>
+          <option value="Business">Business — 7,000 جنيه</option>
+        </select>
+
+        <textarea
+          id="orderDetails"
+          placeholder="اكتب أي تفاصيل أو طلبات خاصة..."
+        ></textarea>
+
+        <button class="btn btn-primary" type="submit">
+          إرسال الطلب عبر واتساب
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- LOGIN MODAL -->
+  <div class="modal" id="loginModal">
+
+    <div class="modal-box">
+
+      <button class="close" onclick="closeLogin()">×</button>
+
+      <h2>تسجيل الدخول</h2>
+
+      <p style="color:var(--muted)">
+        حساب العملاء والموظفين.
+      </p>
+
+      <form class="form" onsubmit="fakeLogin(event)">
+
+        <input
+          type="email"
+          placeholder="البريد الإلكتروني"
+          required
+        >
+
+        <input
+          type="password"
+          placeholder="كلمة المرور"
+          required
+        >
+
+        <button class="btn btn-primary">
+          دخول
+        </button>
+
+      </form>
+
+      <p style="font-size:12px;color:#777;margin-top:15px">
+        سيتم ربط الدخول الحقيقي بـ Firebase في المرحلة التالية.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    let selectedPackage = "";
+
+    function openOrder(packageName = "") {
+
+      selectedPackage = packageName;
+
+      document.getElementById("orderModal").classList.add("show");
+
+      if(packageName){
+        document.getElementById("packageSelect").value = packageName;
+      }
+    }
+
+    function closeOrder(){
+      document.getElementById("orderModal").classList.remove("show");
+    }
+
+    function openLogin(){
+      document.getElementById("loginModal").classList.add("show");
+    }
+
+    function closeLogin(){
+      document.getElementById("loginModal").classList.remove("show");
+    }
+
+    function submitOrder(event){
+
+      event.preventDefault();
+
+      const name =
+        document.getElementById("customerName").value;
+
+      const restaurant =
+        document.getElementById("restaurantName").value;
+
+      const phone =
+        document.getElementById("customerPhone").value;
+
+      const pack =
+        document.getElementById("packageSelect").value;
+
+      const details =
+        document.getElementById("orderDetails").value;
+
+      const message =
+`🔥 طلب جديد من Zuqvi AI
+
+👤 العميل: ${name}
+🍔 المطعم: ${restaurant}
+📱 الهاتف: ${phone}
+📦 الباقة: ${pack}
+
+📝 التفاصيل:
+${details || "لا يوجد"}
+
+💵 الدفع: كاش`;
+
+      const whatsapp =
+        "https://wa.me/201143813913?text=" +
+        encodeURIComponent(message);
+
+      window.open(whatsapp,"_blank");
+
+    }
+
+    function fakeLogin(event){
+
+      event.preventDefault();
+
+      alert(
+        "تسجيل الدخول الحقيقي هيتم ربطه بـ Firebase في المرحلة القادمة."
+      );
+
+    }
+
+    window.addEventListener("click",function(e){
+
+      if(e.target.id === "orderModal"){
+        closeOrder();
+      }
+
+      if(e.target.id === "loginModal"){
+        closeLogin();
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
